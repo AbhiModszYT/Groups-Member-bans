@@ -1,0 +1,56 @@
+
+{
+    "name": "Ban All Bot",
+    "description": "help you to ban the all memebers from the group",
+    "repository": "https://github.com/AbhiModszYT/BanAllBot",
+    "logo": "https://telegra.ph/file/26aa5ce660ccb0ebdb38c.jpg",
+    "keywords": [
+        "python",
+        "telegram"
+    ],
+    "buildpacks": [{
+    "url": "heroku/python"
+  }],
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "eco"
+        }
+     },
+       "addons": [
+      {
+         "options": {
+            "version": "12"
+         },
+         "plan": "heroku-postgresql"
+      }
+   ],
+  "env": {
+      "API_ID": {
+        "description": "Fill Api ID Take this value from My.telegram.org",
+        "value": "",
+        "required": true
+      },
+      "API_HASH": {
+        "description": "Fill Api hash Take this value from My.telegram.org",
+        "value": "",
+        "required": true
+      },
+      "BOT_TOKEN": {
+        "description": "Bot Token take from @BotFather ",
+        "value": "",
+        "required": true
+      },      
+      "SUDO": {
+            "description": "Sudo users id space by space Like: 6204761408 6204761408",
+            "value": "6204761408",
+            "required": true  
+      }
+    },
+    "buildpacks": [
+        {
+            "url": "heroku/python"
+        }
+    ]
+}
+
