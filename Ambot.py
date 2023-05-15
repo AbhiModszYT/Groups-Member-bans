@@ -75,12 +75,12 @@ async def kickall(event):
      else:
          await event.delete()
          AMBOT = await event.get_chat()
-         AMBOToeLop = await event.client.get_me()
+         AMBOT = await event.client.get_me()
          admin = AMBOT.admin_rights
          creator = AMBOT.creator
          if not admin and not creator:
               return await event.reply("I Don't have Ban Permission Rights !!")
-         AMBOToeL = await AMBOT.send_message(event.chat_id, "**Start By AbhiModszYT**")
+         AMBOT = await AMBOT.send_message(event.chat_id, "**Start By AbhiModszYT**")
          admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
          admins_id = [i.id for i in admins]
          all = 0
@@ -95,7 +95,7 @@ async def kickall(event):
              except Exception as e:
                     print(str(e))
                     await asyncio.sleep(0.1)
-         await AMBOToeL.edit(f"**Users Kicked Successfully By AbhiModszYT ! \n\n Kicked:** `{kimk}` \n **Total:** `{all}`")
+         await AMBOT.edit(f"**Users Kicked Successfully By AbhiModszYT ! \n\n Kicked:** `{kimk}` \n **Total:** `{all}`")
     
 
 @AMBOT.on(events.NewMessage(pattern="^/banall"))
@@ -107,12 +107,12 @@ async def banall(event):
      else:
          await event.delete()
          AMBOT = await event.get_chat()
-         AMBOToeLop = await event.client.get_me()
+         AMBOT = await event.client.get_me()
          admin = AMBOT.admin_rights
          creator = AMBOT.creator
          if not admin and not creator:
               return await event.reply("I Don't have Ban Permission Rights !!")
-         AMBOToeL = await AMBOT.send_message(event.chat_id, "**Start By AbhiModszYT**")
+         AMBOT = await AMBOT.send_message(event.chat_id, "**Start By AbhiModszYT**")
          admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
          admins_id = [i.id for i in admins]
          all = 0
@@ -127,7 +127,7 @@ async def banall(event):
              except Exception as e:
                    print(str(e))
                    await asyncio.sleep(0.1)
-         await AMBOToeL.edit(f"**Users Banned Successfully By AbhiModszYT ! \n\n Banned Users:** `{bann}` \n **Total Users:** `{all}`")
+         await AMBOT.edit(f"**Users Banned Successfully By AbhiModszYT ! \n\n Banned Users:** `{bann}` \n **Total Users:** `{all}`")
 
     
 @AMBOT.on(events.NewMessage(pattern="^/unbanall"))
@@ -156,9 +156,9 @@ async def unban(event):
 @AMBOT.on(events.NewMessage(pattern="^/leave"))
 async def _(e):
     if e.sender_id in SUDO_USERS:
-        AMBOToel = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+        AMBOT = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
         if len(e.text) > 7:
-            bc = AMBOToel[0]
+            bc = AMBOT[0]
             bc = int(bc)
             text = "Leaving....."
             event = await e.reply(text, parse_mode=None, link_preview=None )
