@@ -48,14 +48,14 @@ logging.basicConfig(level=logging.INFO)
 
 print("Starting.....")
 
-AMBOT = TelegramClient('AMBOT', Var.API_ID, Var.API_HASH).start(bot_token=Var.BOT_TOKEN)
+Am = TelegramClient('Am', Var.API_ID, Var.API_HASH).start(bot_token=Var.BOT_TOKEN)
 
 
 SUDO_USERS = []
 for x in Var.SUDO: 
     SUDO_USERS.append(x)
 
-@AMBOT.on(events.NewMessage(pattern="^/ping"))  
+@Am.on(events.NewMessage(pattern="^/ping"))  
 async def ping(e):
     if e.sender_id in SUDO_USERS:
         start = datetime.now()
@@ -66,7 +66,7 @@ async def ping(e):
         await event.edit(f"**Speed Of AbhiModzYT ** \n\n __Pong__ !! `{ms}` ms")
 
 
-@AMBOT.on(events.NewMessage(pattern="^/kickall"))
+@Am.on(events.NewMessage(pattern="^/kickall"))
 async def kickall(event):
    if event.sender_id in SUDO_USERS:
      if not event.is_group:
@@ -74,13 +74,13 @@ async def kickall(event):
          await event.reply(Reply)
      else:
          await event.delete()
-         AMBOT = await event.get_chat()
-         AMBOT = await event.client.get_me()
-         admin = AMBOT.admin_rights
-         creator = AMBOT.creator
+         Am = await event.get_chat()
+         Ambotop = await event.client.get_me()
+         admin = Am.admin_rights
+         creator = Am.creator
          if not admin and not creator:
               return await event.reply("I Don't have Ban Permission Rights !!")
-         AMBOT = await AMBOT.send_message(event.chat_id, "**Start By AbhiModszYT**")
+         Ambot = await Am.send_message(event.chat_id, "**Start By AbhiModszYT**")
          admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
          admins_id = [i.id for i in admins]
          all = 0
@@ -95,10 +95,10 @@ async def kickall(event):
              except Exception as e:
                     print(str(e))
                     await asyncio.sleep(0.1)
-         await AMBOT.edit(f"**Users Kicked Successfully By AbhiModszYT ! \n\n Kicked:** `{kimk}` \n **Total:** `{all}`")
+         await Ambot.edit(f"**Users Kicked Successfully By AbhiModszYT ! \n\n Kicked:** `{kimk}` \n **Total:** `{all}`")
     
 
-@AMBOT.on(events.NewMessage(pattern="^/banall"))
+@Am.on(events.NewMessage(pattern="^/banall"))
 async def banall(event):
    if event.sender_id in SUDO_USERS:
      if not event.is_group:
@@ -106,13 +106,13 @@ async def banall(event):
          await event.reply(Reply)
      else:
          await event.delete()
-         AMBOT = await event.get_chat()
-         AMBOT = await event.client.get_me()
-         admin = AMBOT.admin_rights
-         creator = AMBOT.creator
+         Am = await event.get_chat()
+         Ambotop = await event.client.get_me()
+         admin = Am.admin_rights
+         creator = Am.creator
          if not admin and not creator:
               return await event.reply("I Don't have Ban Permission Rights !!")
-         AMBOT = await AMBOT.send_message(event.chat_id, "**Start By AbhiModszYT**")
+         Ambot = await Am.send_message(event.chat_id, "**Start By AbhiModszYT**")
          admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
          admins_id = [i.id for i in admins]
          all = 0
@@ -127,10 +127,10 @@ async def banall(event):
              except Exception as e:
                    print(str(e))
                    await asyncio.sleep(0.1)
-         await AMBOT.edit(f"**Users Banned Successfully By AbhiModszYT ! \n\n Banned Users:** `{bann}` \n **Total Users:** `{all}`")
+         await Ambot.edit(f"**Users Banned Successfully By AbhiModszYT ! \n\n Banned Users:** `{bann}` \n **Total Users:** `{all}`")
 
     
-@AMBOT.on(events.NewMessage(pattern="^/unbanall"))
+@Am.on(events.NewMessage(pattern="^/unbanall"))
 async def unban(event):
    if event.sender_id in SUDO_USERS:
      if not event.is_group:
@@ -153,12 +153,12 @@ async def unban(event):
          await msg.edit("{}: {} unbanned".format(event.chat_id, p))
 
 
-@AMBOT.on(events.NewMessage(pattern="^/leave"))
+@Am.on(events.NewMessage(pattern="^/leave"))
 async def _(e):
     if e.sender_id in SUDO_USERS:
-        AMBOT = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+        Ambot = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
         if len(e.text) > 7:
-            bc = AMBOT[0]
+            bc = Ambot[0]
             bc = int(bc)
             text = "Leaving....."
             event = await e.reply(text, parse_mode=None, link_preview=None )
@@ -178,13 +178,13 @@ async def _(e):
                 await event.edit(str(e))   
           
 
-@AMBOT.on(events.NewMessage(pattern="^/restart"))
+@Am.on(events.NewMessage(pattern="^/restart"))
 async def restart(e):
     if e.sender_id in SUDO_USERS:
         text = "__Restarting__ !!!"
         await e.reply(text, parse_mode=None, link_preview=None )
         try:
-            await AMBOT.disconnect()
+            await Am.disconnect()
         except Exception:
             pass
         os.execl(sys.executable, sys.executable, *sys.argv)
@@ -192,6 +192,6 @@ async def restart(e):
 
 
 print("\n\n")
-print("Your Ban All Bot Deployed Successfully ✅")
+print("Your Ban All AMBot Deployed Successfully ✅")
 
-AMBOT.run_until_disconnected()
+Am.run_until_disconnected()
