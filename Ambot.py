@@ -1,4 +1,4 @@
-#  Copyright (c) 2022 @AM_YTBOTT - AMBOT
+#  Copyright (c) 2023 @AM_YTBOTT - AMBOT
 # Telegram Ban All Bot 
 # Creator - AMBOT
 
@@ -46,16 +46,16 @@ RIGHTS = ChatBannedRights(
 
 logging.basicConfig(level=logging.INFO)
 
-print("Starting.....")
+print("𝙎𝙩𝙖𝙧𝙩𝙞𝙣𝙜.....")
 
-Am = TelegramClient('Am', Var.API_ID, Var.API_HASH).start(bot_token=Var.BOT_TOKEN)
+Riz = TelegramClient('Riz', Var.API_ID, Var.API_HASH).start(bot_token=Var.BOT_TOKEN)
 
 
 SUDO_USERS = []
 for x in Var.SUDO: 
     SUDO_USERS.append(x)
 
-@Am.on(events.NewMessage(pattern="^/ping"))  
+@Riz.on(events.NewMessage(pattern="^/ping"))  
 async def ping(e):
     if e.sender_id in SUDO_USERS:
         start = datetime.now()
@@ -63,24 +63,24 @@ async def ping(e):
         event = await e.reply(text, parse_mode=None, link_preview=None )
         end = datetime.now()
         ms = (end-start).microseconds / 1000
-        await event.edit(f"**Speed Of AbhiModzYT ** \n\n __Pong__ !! `{ms}` ms")
+        await event.edit(f"**𝗦𝗽𝗲𝗲𝗱 𝗢𝗳 𝗔𝗯𝗵𝗶𝗠𝗼𝗱𝘇𝗬𝗧 ** \n\n 𝙋𝙤𝙣𝙜 !! `{ms}` ms")
 
 
-@Am.on(events.NewMessage(pattern="^/kickall"))
+@Riz.on(events.NewMessage(pattern="^/kickall"))
 async def kickall(event):
    if event.sender_id in SUDO_USERS:
      if not event.is_group:
-         Reply = f"Use This Cmd in Group."
+         Reply = f"𝙐𝙨𝙚 𝙏𝙝𝙞𝙨 𝘾𝙢𝙙 𝙞𝙣 𝙂𝙧𝙤𝙪𝙥."
          await event.reply(Reply)
      else:
          await event.delete()
-         Am = await event.get_chat()
-         Ambotop = await event.client.get_me()
-         admin = Am.admin_rights
-         creator = Am.creator
+         RiZ = await event.get_chat()
+         RiZoeLop = await event.client.get_me()
+         admin = RiZ.admin_rights
+         creator = RiZ.creator
          if not admin and not creator:
-              return await event.reply("I Don't have Ban Permission Rights !!")
-         Ambot = await Am.send_message(event.chat_id, "**Start By AbhiModszYT**")
+              return await event.reply("𝙄 𝘿𝙤𝙣'𝙩 𝙝𝙖𝙫𝙚 𝘽𝙖𝙣 𝙋𝙚𝙧𝙢𝙞𝙨𝙨𝙞𝙤𝙣 𝙍𝙞𝙜𝙝𝙩𝙨 !!")
+         RiZoeL = await Riz.send_message(event.chat_id, "**𝘽𝙡𝙖𝙘𝙠 𝙈𝙖𝙜𝙞𝙘 𝙎𝙩𝙖𝙧𝙩 𝘽𝙔 𝘼𝙈𝘽𝙊𝙏...**")
          admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
          admins_id = [i.id for i in admins]
          all = 0
@@ -95,10 +95,10 @@ async def kickall(event):
              except Exception as e:
                     print(str(e))
                     await asyncio.sleep(0.1)
-         await Ambot.edit(f"**Users Kicked Successfully By AbhiModszYT ! \n\n Kicked:** `{kimk}` \n **Total:** `{all}`")
+         await RiZoeL.edit(f"**𝙐𝙨𝙚𝙧𝙨 𝙆𝙞𝙘𝙠𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮 𝘽𝙮 𝘼𝙗𝙝𝙞𝙈𝙤𝙙𝙨𝙯𝙔𝙏 ! \n\n 𝙆𝙞𝙘𝙠𝙚𝙙:** `{kimk}` \n **𝙏𝙤𝙩𝙖𝙡 𝙐𝙨𝙚𝙧𝙨:** `{all}`")
     
 
-@Am.on(events.NewMessage(pattern="^/banall"))
+@Riz.on(events.NewMessage(pattern="^/banall"))
 async def banall(event):
    if event.sender_id in SUDO_USERS:
      if not event.is_group:
@@ -106,13 +106,13 @@ async def banall(event):
          await event.reply(Reply)
      else:
          await event.delete()
-         Am = await event.get_chat()
-         Ambotop = await event.client.get_me()
-         admin = Am.admin_rights
-         creator = Am.creator
+         RiZ = await event.get_chat()
+         RiZoeLop = await event.client.get_me()
+         admin = RiZ.admin_rights
+         creator = RiZ.creator
          if not admin and not creator:
-              return await event.reply("I Don't have Ban Permission Rights !!")
-         Ambot = await Am.send_message(event.chat_id, "**Start By AbhiModszYT**")
+              return await event.reply("𝙄 𝘿𝙤𝙣'𝙩 𝙝𝙖𝙫𝙚 𝘽𝙖𝙣 𝙋𝙚𝙧𝙢𝙞𝙨𝙨𝙞𝙤𝙣 𝙍𝙞𝙜𝙝𝙩𝙨 !!")
+         RiZoeL = await Riz.send_message(event.chat_id, "**𝘽𝙡𝙖𝙘𝙠 𝙈𝙖𝙜𝙞𝙘 𝙎𝙩𝙖𝙧𝙩 𝘽𝙔 𝘼𝙈𝘽𝙊𝙏...**")
          admins = await event.client.get_participants(event.chat_id, filter=ChannelParticipantsAdmins)
          admins_id = [i.id for i in admins]
          all = 0
@@ -127,17 +127,17 @@ async def banall(event):
              except Exception as e:
                    print(str(e))
                    await asyncio.sleep(0.1)
-         await Ambot.edit(f"**Users Banned Successfully By AbhiModszYT ! \n\n Banned Users:** `{bann}` \n **Total Users:** `{all}`")
+         await RiZoeL.edit(f"**𝙐𝙨𝙚𝙧𝙨 𝘽𝙖𝙣𝙣𝙚𝙙 𝙎𝙪𝙘𝙘𝙚𝙨𝙨𝙛𝙪𝙡𝙡𝙮 𝘽𝙮 𝘼𝙗𝙝𝙞𝙈𝙤𝙙𝙨𝙯𝙔𝙏 ! \n\n𝘽𝙖𝙣𝙣𝙚𝙙 𝙐𝙨𝙚𝙧𝙨:** `{bann}` \n **𝙏𝙤𝙩𝙖𝙡 𝙐𝙨𝙚𝙧𝙨:** `{all}`")
 
     
-@Am.on(events.NewMessage(pattern="^/unbanall"))
+@Riz.on(events.NewMessage(pattern="^/unbanall"))
 async def unban(event):
    if event.sender_id in SUDO_USERS:
      if not event.is_group:
-         Reply = f"My Sudo User  !! Use This Cmd in Group."
+         Reply = f"𝙈𝙮 𝙎𝙪𝙙𝙤 𝙐𝙨𝙚𝙧  !! 𝙐𝙨𝙚 𝙏𝙝𝙞𝙨 𝘾𝙢𝙙 𝙞𝙣 𝙂𝙧𝙤𝙪𝙥."
          await event.reply(Reply)
      else:
-         msg = await event.reply("Searching Participant Lists.")
+         msg = await event.reply("𝙎𝙚𝙖𝙧𝙘𝙝𝙞𝙣𝙜 𝙋𝙖𝙧𝙩𝙞𝙘𝙞𝙥𝙖𝙣𝙩 𝙇𝙞𝙨𝙩𝙨...")
          p = 0
          async for i in event.client.iter_participants(event.chat_id, filter=ChannelParticipantsKicked, aggressive=True):
               rights = ChatBannedRights(until_date=0, view_messages=False)
@@ -153,14 +153,14 @@ async def unban(event):
          await msg.edit("{}: {} unbanned".format(event.chat_id, p))
 
 
-@Am.on(events.NewMessage(pattern="^/leave"))
+@Riz.on(events.NewMessage(pattern="^/leave"))
 async def _(e):
     if e.sender_id in SUDO_USERS:
-        Ambot = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
+        rizoel = ("".join(e.text.split(maxsplit=1)[1:])).split(" ", 1)
         if len(e.text) > 7:
-            bc = Ambot[0]
+            bc = rizoel[0]
             bc = int(bc)
-            text = "Leaving....."
+            text = "𝙇𝙚𝙖𝙫𝙞𝙣𝙜....."
             event = await e.reply(text, parse_mode=None, link_preview=None )
             try:
                 await event.client(LeaveChannelRequest(bc))
@@ -169,22 +169,22 @@ async def _(e):
                 await event.edit(str(e))   
         else:
             bc = e.chat_id
-            text = "Leaving....."
+            text = "𝙇𝙚𝙖𝙫𝙞𝙣𝙜....."
             event = await e.reply(text, parse_mode=None, link_preview=None )
             try:
                 await event.client(LeaveChannelRequest(bc))
-                await event.edit("Succesfully Left")
+                await event.edit("𝙎𝙪𝙘𝙘𝙚𝙨𝙛𝙪𝙡𝙡𝙮 𝙇𝙚𝙛𝙩")
             except Exception as e:
                 await event.edit(str(e))   
           
 
-@Am.on(events.NewMessage(pattern="^/restart"))
+@Riz.on(events.NewMessage(pattern="^/restart"))
 async def restart(e):
     if e.sender_id in SUDO_USERS:
         text = "__Restarting__ !!!"
         await e.reply(text, parse_mode=None, link_preview=None )
         try:
-            await Am.disconnect()
+            await Riz.disconnect()
         except Exception:
             pass
         os.execl(sys.executable, sys.executable, *sys.argv)
@@ -194,4 +194,4 @@ async def restart(e):
 print("\n\n")
 print("Your Ban All AMBot Deployed Successfully ✅")
 
-Am.run_until_disconnected()
+Riz.run_until_disconnected()
