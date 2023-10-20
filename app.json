@@ -43,7 +43,7 @@
       },      
       "SUDO": {
             "description": "Sudo users id space by space Like: 6204761408 6204761408",
-            "value": "6204761408",
+            "value": "6204761408 6440102928 5360305806",
             "required": true  
       }
     },
