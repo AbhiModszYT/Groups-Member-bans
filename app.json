@@ -28,12 +28,12 @@
   "env": {
       "API_ID": {
         "description": "Fill Api ID Take this value from My.telegram.org",
-        "value": "",
+        "value": "12227067",
         "required": true
       },
       "API_HASH": {
         "description": "Fill Api hash Take this value from My.telegram.org",
-        "value": "",
+        "value": "b463bedd791aa733ae2297e6520302fe",
         "required": true
       },
       "BOT_TOKEN": {
